@@ -1,0 +1,145 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+section {
+    min-height: 100vh;
+    background-color: rgb(174, 177, 218);
+    font-family: sans-serif;
+    overflow: hidden;
+}
+
+.score {
+    color: rgb(0, 0, 0);
+    height: 20vh;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.score h2 {
+    font-size: 30px;
+}
+
+.score p {
+    text-align: center;
+    padding: 10px;
+    font-size: 25px;
+}
+
+.intro {
+    color: rgb(0, 0, 0);
+    height: 50vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    transition: opacity 0.5s ease;
+    text-align: center;
+    padding: 20px;
+}
+
+.intro h1 {
+    font-size: clamp(32px, 5vw, 50px);
+}
+
+.intro button,
+.match button {
+    width: 150px;
+    min-height: 50px;
+    border: none;
+    color: rgb(211, 210, 252);
+    font-size: 20px;
+    background: rgb(58, 52, 143);
+    border-radius: 3px;
+    cursor: pointer;
+}
+
+.intro button:hover,
+.match button:hover {
+    background: rgb(58, 52, 143);
+}
+
+.match {
+    position: absolute;
+    top: 55%;
+    left: 50%;
+    width: min(900px, 100%);
+    transform: translate(-50%, -50%);
+    transition: opacity 0.5s ease 0.5s;
+    padding: 20px;
+}
+
+.winner {
+    color: rgb(0, 0, 0);
+    text-align: center;
+    font-size: clamp(28px, 5vw, 50px);
+    margin-bottom: 20px;
+}
+
+.hands,
+.options {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    gap: 15px;
+}
+
+.hands img {
+    width: min(30vw, 250px);
+    height: 220px;
+    object-fit: contain;
+}
+
+.player-hand {
+    transform: rotateY(180deg);
+}
+
+.options {
+    flex-wrap: wrap;
+    margin-top: 20px;
+}
+
+div.fadeOut {
+    opacity: 0;
+    pointer-events: none;
+}
+
+div.fadeIn {
+    opacity: 1;
+    pointer-events: all;
+}
+
+@keyframes shakePlayer {
+    0%, 25%, 50%, 75%, 100% {
+        transform: rotateY(180deg) translateY(0);
+    }
+    15%, 35%, 65%, 85% {
+        transform: rotateY(180deg) translateY(-30px);
+    }
+}
+
+@keyframes shakeComputer {
+    0%, 25%, 50%, 75%, 100% {
+        transform: translateY(0);
+    }
+    15%, 35%, 65%, 85% {
+        transform: translateY(-30px);
+    }
+}
+
+@media (max-width: 600px) {
+    .score h2 {
+        font-size: 24px;
+    }
+
+    .hands img {
+        height: 160px;
+    }
+
+    .match {
+        top: 58%;
+    }
+}
